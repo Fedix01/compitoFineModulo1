@@ -154,6 +154,11 @@ function find() {
   let locationValue = document.getElementById("location").value;
   // inserisco l'algoritmo creato precedentemente
   let resultJobs = searchJobs(TitleValue, locationValue);
+
+
+  if ((TitleValue === "" && locationValue === "") || (TitleValue !== "" && locationValue === "")) {
+    return
+  }
   search(resultJobs)
 }
 function search(resultJobs) {
