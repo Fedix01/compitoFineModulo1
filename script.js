@@ -124,9 +124,11 @@ const jobs = [
     location: "US, NY, Saint Bonaventure",
   },
 ]
-
+// Creo la funzione algoritmo
 function searchJobs(title, location) {
+  // La func accetterà due parametri equivalenti alla chiave-valore dell'oggetto nell'array dato
   let result = [];
+  // Creo l'array vuoto e itero i vari elementi, accettai come lowerCase e inserisco la condizione if
   for (let i = 0; i < jobs.length; i++) {
     let all = jobs[i];
     let lowerT = all.title.toLowerCase();
@@ -135,12 +137,12 @@ function searchJobs(title, location) {
       let finisher = { title: all.title, location: all.location };
       result.push(finisher);
     }
-
+    // Ritorno i risultati ottenuti e il contatore
   } return {
     result: result,
     count: result.length
   }
-};
+}
 // let newJobs = searchJobs("customer", "waltham");
 // console.log(newJobs)
 
@@ -149,21 +151,25 @@ function searchJobs(title, location) {
 
 function find() {
   // acquisisco i valori dei 2 input
-  let TitleValue = document.getElementById("title").value;
+  let titleValue = document.getElementById("title").value;
 
   let locationValue = document.getElementById("location").value;
   // inserisco l'algoritmo creato precedentemente
-  let resultJobs = searchJobs(TitleValue, locationValue);
+  let resultJobs = searchJobs(titleValue, locationValue);
 
+  // Inserisco la condizione, se le barre di ricerca sono vuote...
+  if ((titleValue === "" && locationValue === "") || (titleValue !== "" && locationValue === "")) {
+    let list = document.getElementById("list");
 
-  if ((TitleValue === "" && locationValue === "") || (TitleValue !== "" && locationValue === "")) {
+    list.innerHTML = " Hello, enter title and position please";
+    list.style.margin = "10px 3px";
     return
   }
   search(resultJobs)
 }
 function search(resultJobs) {
   let list = document.getElementById("list");
-
+  // Pulisco il contenuto dopo ogni ricerca, ed eseguo l'iterazione dell li che conterrà i dati trovati
   list.innerHTML = "";
 
   for (let i = 0; i < resultJobs.result.length; i++) {
@@ -174,7 +180,11 @@ function search(resultJobs) {
 
   }
 }
-find()
+// Aggiungo al bottone la sua funzione al click
+let myBtn = document.querySelector(".my-btn");
+myBtn.addEventListener("click", find);
+// Lascio la func invocata per mostrarmi il messaggio in caso di input vuoti
+find();
 
 
 
@@ -199,32 +209,5 @@ find()
 
 
 
-
-// function find() {
-//   let input1 = document.getElementById("title").value;
-//   console.log(input1)
-//   let input2 = document.getElementById("location").value;
-//   console.log(input2)
-//   let contenitore = document.getElementById("content");
-
-//   for (let i = 0; i < jobs.length; i++) {
-
-//     let all = jobs[i];
-
-//     console.log(all)
-//     let lowerT = all.title.toLowerCase();
-//     let lowerL = all.location.toLowerCase();
-//     console.log(lowerT)
-//     if (lowerT.includes(input1) && lowerL.includes(input2)) {
-//       for (let i = 0; i < jobs.length; i++) {
-//         let finish = [all.title, all.location];
-//         contenitore.innerText = finish;
-//       }
-
-//     }
-//   }
-// }
-
-// find()
 
 

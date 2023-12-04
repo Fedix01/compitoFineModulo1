@@ -4,20 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Search-bars</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container">
+        <div class="search-container">
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Insert title...">
+            <label for="location">Location</label>
+            <input type="text" id="location" placeholder="Insert location...">
+            <button class="my-btn" id="click-me" value="cerca">Cerca</button>
+        </div>
 
-    <label for="title">Titolo</label>
-    <input type="text" id="title">
-    <label for="location">Location</label>
-    <input type="text" id="location">
-    <button id="click-me" value="cerca" onclick="find()">Cerca</button>
+        <ul id="list"></ul>
 
-
-    <ul id="list"></ul>
-
+    </div>
     <script src="script.js"></script>
 </body>
 
