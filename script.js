@@ -128,6 +128,8 @@ const jobs = [
 function searchJobs(title, location) {
   // La func accetterà due parametri equivalenti alla chiave-valore dell'oggetto nell'array dato
   let result = [];
+  title = title.toLowerCase();
+  location = location.toLowerCase()
   // Creo l'array vuoto e itero i vari elementi, accettai come lowerCase e inserisco la condizione if
   for (let i = 0; i < jobs.length; i++) {
     let all = jobs[i];
@@ -143,7 +145,7 @@ function searchJobs(title, location) {
     count: result.length
   }
 }
-// let newJobs = searchJobs("customer", "waltham");
+// let newJobs = searchJobs("Customer", "Waltham");
 // console.log(newJobs)
 
 
